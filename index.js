@@ -23,7 +23,7 @@ app.get("/projects", (req, res) => {
           "This is my first project, that is build on React.js. It can be used to generate cool meme and edit images",
         repolink: "https://github.com/Nimitlambton/MN",
         DeployedLink: "https://meme-nator.netlify.app",
-        thumbnail: base64_encode(__dirname + "./Assets/eg/png"),
+        thumbnail: `base64_encode(__dirname + "./Assets/eg/png")`,
         status: "completed",
       },
     ],
