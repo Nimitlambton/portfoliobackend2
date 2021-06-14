@@ -23,13 +23,23 @@ app.get("/projects", (req, res) => {
           "This is my first project, that is build on React.js. It can be used to generate cool meme and edit images",
         repolink: "https://github.com/Nimitlambton/MN",
         DeployedLink: "https://meme-nator.netlify.app",
-        thumbnail: __dirname,
-        // `base64_encode(    "https://80ded86b-e216-4316-a39b-300f1e8a59ae.netlify.app/.netlify/large-media")`,
+        thumbnail: base64_encode(__dirname + "./Assets/eg/png"),
         status: "completed",
       },
     ],
   });
 });
+
+//function coverts image that are kept in Assests folder data top base64
+function base64_encode(file) {
+  //  read binary data
+  var bitmap = fs.readFileSync(file);
+  // convert binary data to base64 encoded string
+
+  var abc = new Buffer(bitmap).toString("base64");
+
+  return "data:image/png;base64," + abc;
+}
 
 const port = process.env.PORT || 2004;
 app.listen(port, () => {
