@@ -5,6 +5,8 @@ const path = require("path");
 const app = express();
 var fs = require("fs");
 
+app.use(cors());
+
 app.use(
   express.static(
     path.join(
