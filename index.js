@@ -3,6 +3,15 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
 const app = express();
+var fs = require("fs");
+
+app.use(
+  express.static(
+    path.join(
+      "/Users/nimi/Desktop/javascriptws/reactproj/porfolinbackend/portfolioserver/Assets/eg2.jpeg"
+    )
+  )
+);
 
 app.get("/jumbtron", (req, res) => {
   res.json({
@@ -23,7 +32,7 @@ app.get("/projects", (req, res) => {
           "This is my first project, that is build on React.js. It can be used to generate cool meme and edit images",
         repolink: "https://github.com/Nimitlambton/MN",
         DeployedLink: "https://meme-nator.netlify.app",
-        thumbnail: `base64_encode(__dirname + "./Assets/eg/png")`,
+        thumbnail: base64_encode(__dirname + "/Assets/eg2.jpeg"),
         status: "completed",
       },
     ],
@@ -41,7 +50,7 @@ function base64_encode(file) {
   return "data:image/png;base64," + abc;
 }
 
-const port = process.env.PORT || 2004;
+const port = process.env.PORT || 2005;
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
