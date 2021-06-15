@@ -81,9 +81,7 @@ app.get("/projects", (req, res) => {
   });
 });
 
-app.get("/testing", (req, res) => {
-  res.json({ mello: true });
-});
+app.use("/testing", projects);
 
 //function coverts image that are kept in Assests folder data top base64
 function base64_encode(file) {
