@@ -4,16 +4,24 @@ const cors = require("cors");
 const path = require("path");
 const app = express();
 var fs = require("fs");
-
+var mongoose = require("mongoose");
+var projects = require(__dirname + "/routers/projects");
 app.use(cors());
 
-app.use(
-  express.static(
-    path.join(
-      "/Users/nimi/Desktop/javascriptws/reactproj/porfolinbackend/portfolioserver/Assets/eg2.jpeg"
-    )
+//conntect database
+mongoose
+  .connect(
+    "mongodb+srv://nimit:swager123@cluster0.isauo.mongodb.net/todos?retryWrites=true&w=majority",
+    {
+      useUnifiedTopology: true,
+    }
   )
-);
+  .catch((err) => {
+    console.log(err);
+  });
+
+const uri =
+  "mongodb+srv://nimit:Swager@123@cluster0.isauo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 app.get("/jumbtron", (req, res) => {
   res.json({
@@ -73,6 +81,10 @@ app.get("/projects", (req, res) => {
   });
 });
 
+app.get("/testing", (req, res) => {
+  res.json({ mello: true });
+});
+
 //function coverts image that are kept in Assests folder data top base64
 function base64_encode(file) {
   //  read binary data
@@ -84,7 +96,7 @@ function base64_encode(file) {
   return "data:image/png;base64," + abc;
 }
 
-const port = process.env.PORT || 2005;
+const port = process.env.PORT || 2006;
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
