@@ -3,7 +3,7 @@ const app = express();
 const router = express.Router();
 var fs = require("fs");
 var projects = require("../models/projects");
-
+app.use(cors());
 router.get("/", async (req, res) => {
   //   res.send("helloworld");
   // });
@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
 
 router.post("/", (req, res) => {
   const project = new projects({
-    title: "peoople",
+    title: "peoo",
   });
 
   project.save();
