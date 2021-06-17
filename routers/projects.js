@@ -3,6 +3,7 @@ const app = express();
 const router = express.Router();
 var fs = require("fs");
 var projects = require("../models/projects");
+const cors = require("cors");
 app.use(cors());
 router.get("/", async (req, res) => {
   //   res.send("helloworld");
