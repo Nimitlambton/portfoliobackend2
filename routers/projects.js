@@ -6,9 +6,6 @@ var projects = require("../models/projects");
 const cors = require("cors");
 app.use(cors());
 router.get("/", async (req, res) => {
-  //   res.send("helloworld");
-  // });
-
   try {
     projects = await projects.find();
     res.json(projects);
@@ -18,12 +15,17 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", (req, res) => {
+  console.log(req.body.title);
   const project = new projects({
-    title: "peoo",
+    title: req.body.title,
+    projectId: req.body.projectId,
+    desc: req.body.desc,
+    repolink: req.body.repolink,
+    DeployedLink: req.body.DeployedLink,
+    thumbnail: req.body.thumbnail,
+    status: req.body.status,
   });
-
   project.save();
-
   res.send("hellowor");
 });
 
