@@ -5,10 +5,11 @@ var fs = require("fs");
 var projects = require("../models/projects");
 const cors = require("cors");
 app.use(cors());
+
 router.get("/", async (req, res) => {
   try {
-    projects = await projects.find();
-    res.json(projects);
+    var project = await projects.find();
+    res.send(project);
   } catch (err) {
     console.error(err);
   }

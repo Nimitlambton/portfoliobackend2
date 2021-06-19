@@ -7,6 +7,7 @@ var fs = require("fs");
 var projects = require(__dirname + "/routers/projects");
 var mongoose = require("mongoose");
 
+//happy lad
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
@@ -14,11 +15,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //conntect database
 mongoose
   .connect(
-    "mongodb+srv://nimit:swager123@cluster0.isauo.mongodb.net/todos?retryWrites=true&w=majority",
+    "mongodb+srv://nimit:swager123@cluster0.isauo.mongodb.net/portfolio?retryWrites=true&w=majority",
     {
       useUnifiedTopology: true,
       useNewUrlParser: true,
-      wtimeout: 2500,
+      wtimeout: 25,
     }
   )
   .catch((err) => {
@@ -99,7 +100,7 @@ function base64_encode(file) {
   return "data:image/png;base64," + abc;
 }
 
-const port = process.env.PORT || 8006;
+const port = process.env.PORT || 8009;
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
