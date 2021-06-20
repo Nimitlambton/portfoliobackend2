@@ -1,5 +1,5 @@
 const express = require("express");
-const bodyParser = require("body-parser");
+var bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
 const app = express();
@@ -7,11 +7,24 @@ var fs = require("fs");
 var projects = require(__dirname + "/routers/projects");
 var mongoose = require("mongoose");
 
-//happy lad
 app.use(cors());
+
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+
+var jsonParser = bodyParser.json({
+  limit: 1024 * 1024 * 10,
+  type: "application/json",
+});
+
+var urlencodedParser = bodyParser.urlencoded({
+  extended: true,
+  limit: 1024 * 1024 * 10,
+  type: "application/x-www-form-urlencoded",
+});
+app.use(jsonParser);
+app.use(urlencodedParser);
 app.use(express.json());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 //conntect database
 mongoose
   .connect(
@@ -100,7 +113,7 @@ function base64_encode(file) {
   return "data:image/png;base64," + abc;
 }
 
-const port = process.env.PORT || 8009;
+const port = process.env.PORT || 1004;
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });

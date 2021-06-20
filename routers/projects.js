@@ -27,7 +27,7 @@ router.post("/", (req, res) => {
     status: req.body.status,
   });
   project.save();
-  res.send("hellowor");
+  res.send("he");
 });
 
 module.exports = router;
