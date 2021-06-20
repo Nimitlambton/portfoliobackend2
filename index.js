@@ -46,8 +46,17 @@ app.get("/jumbtron", (req, res) => {
   res.json({
     h1: "Hi 👋 , Thanks for Stoping by",
     p: "Currently learning MERN Stack & ReactNative ",
-    p2:
-      " <ul> <li>  My name Nimit Pamnani ✨ i am web developer 💻 || Amateur Photographer 📸.|| I live in Toronto, city 🇨🇦 but i call many places my home.</li> </ul>  ",
+    p2: (
+      <ul>
+        {" "}
+        <li>
+          {" "}
+          " My name Nimit Pamnani ✨ i am web developer 💻 || Amateur
+          Photographer 📸.|| I live in Toronto, city 🇨🇦 but i call many places
+          my home."{" "}
+        </li>{" "}
+      </ul>
+    ),
   });
 });
 
