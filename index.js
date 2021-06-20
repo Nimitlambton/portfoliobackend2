@@ -51,55 +51,6 @@ app.get("/jumbtron", (req, res) => {
   });
 });
 
-app.get("/projects", (req, res) => {
-  res.json({
-    projectsList: [
-      {
-        title: "MemeNator",
-        projectId: 1,
-        desc:
-          "This is my first project, that is build on React.js. It can be used to generate cool meme and edit images",
-        repolink: "https://github.com/Nimitlambton/MN",
-        DeployedLink: "https://meme-nator.netlify.app",
-        thumbnail: base64_encode(__dirname + "/Assets/freelance.png"),
-        status: "completed",
-      },
-      {
-        title: "Personal portfolio",
-        status: "completed",
-        projectId: 2,
-        desc:
-          "This is react based responsive Web App , used to showcase all the projects that are created till now ",
-        repolink: "https://github.com/Nimitlambton/NimitpamnaniProfolio",
-        DeployedLink: "https://nimitpamnani.rocks/#home",
-
-        //this function passes  url of a image that are kept in assest folder  which further converts image into base64 data.
-        thumbnail: base64_encode(__dirname + "/Assets/portfolio.png"),
-      },
-      {
-        title: "The Weather App",
-        projectId: 3,
-        desc:
-          "This is weatherApp based on React.js , it can be used to fetch weather of any City in the world 🌏 ",
-        repolink: "https://github.com/Nimitlambton/weatherApp",
-
-        //this function passes  url of a image that are kept in assest folder  which further converts image into base64 data.
-        thumbnail: base64_encode(__dirname + "/Assets/weather.png"),
-        DeployedLink: "https://nimit-theweatherapp.netlify.app/",
-        status: "completed",
-      },
-      {
-        title: "MemeNator",
-        projectId: 4,
-        desc: "This is my first project, that is build on React.js",
-        thumbnail: "",
-        repolink: "",
-        status: "",
-      },
-    ],
-  });
-});
-
 app.use("/testing", projects);
 
 //function coverts image that are kept in Assests folder data top base64
