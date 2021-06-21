@@ -49,7 +49,7 @@ app.get("/jumbtron", (req, res) => {
     
     I became interested in software development when I went high school, and have spent every spare minute I could find exploring web-development and learning new programming languages on CodeAcademy.
     
-    Currently learning MERN Stack & ReactNative 🧑🏽‍💻 `,
+    `,
     p2:
       "  My name Nimit Pamnani ✨ i am full-stack web developer 💻 || Amateur Photographer 📸.",
   });
