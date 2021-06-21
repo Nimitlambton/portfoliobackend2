@@ -45,7 +45,7 @@ const uri =
 app.get("/jumbtron", (req, res) => {
   res.json({
     h1: "Hi 👋 , Thanks for Stoping by  😀",
-    p: "Currently learning MERN Stack & ReactNative   🧑🏼‍💻🧑🏽‍💻🧑🏽‍💻",
+    p: "Currently learning MERN Stack & ReactNative 🧑🏽‍💻 ",
     p2:
       "  My name Nimit Pamnani ✨ i am full-stack web developer 💻 || Amateur Photographer 📸.",
   });
