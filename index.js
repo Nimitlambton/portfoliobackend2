@@ -47,7 +47,7 @@ app.get("/jumbtron", (req, res) => {
     h1: "Hi 👋 , Thanks for Stoping by",
     p: "Currently learning MERN Stack & ReactNative ",
     p2:
-      "  My name Nimit Pamnani ✨ i am web developer 💻 || Amateur Photographer 📸.|| I live in Toronto, city 🇨🇦 but i call many places my home.",
+      "  My name Nimit Pamnani ✨ i am full-stack web developer 💻 || Amateur Photographer 📸.",
   });
 });
 
