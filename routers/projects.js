@@ -6,6 +6,8 @@ var projects = require("../models/projects");
 const cors = require("cors");
 app.use(cors());
 
+//to fetch eveything from the data we have get request
+
 router.get("/", async (req, res) => {
   try {
     var project = await projects.find();
@@ -14,6 +16,8 @@ router.get("/", async (req, res) => {
     console.error(err);
   }
 });
+
+//to send data in mongodb we have used post request
 
 router.post("/", (req, res) => {
   console.log(req.body.title);

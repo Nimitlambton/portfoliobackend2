@@ -1,17 +1,16 @@
-const express = require("express");
-var bodyParser = require("body-parser");
-const cors = require("cors");
-const path = require("path");
-const app = express();
-var fs = require("fs");
+const express = require("express"); //import  express server
+
+var bodyParser = require("body-parser"); //body parser is used to utilize json
+//
+const cors = require("cors"); //cross-origin
+const app = express(); //init Express
+var fs = require("fs"); //file system
 var projects = require(__dirname + "/routers/projects");
-var mongoose = require("mongoose");
+var mongoose = require("mongoose"); //mongoose to use mongodb with ease
 
 app.use(cors());
 
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
-
+//to get request from the client with more space
 var jsonParser = bodyParser.json({
   limit: 1024 * 1024 * 10,
   type: "application/json",
@@ -22,9 +21,12 @@ var urlencodedParser = bodyParser.urlencoded({
   limit: 1024 * 1024 * 10,
   type: "application/x-www-form-urlencoded",
 });
+
+//using this is my server
 app.use(jsonParser);
 app.use(urlencodedParser);
 app.use(express.json());
+
 //conntect database
 mongoose
   .connect(
@@ -39,9 +41,7 @@ mongoose
     console.log(err);
   });
 
-const uri =
-  "mongodb+srv://nimit:Swager@123@cluster0.isauo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-
+//jumbtron content
 app.get("/jumbtron", (req, res) => {
   res.json({
     h1: "Hi 👋 , Thanks for Stoping by  😀",
@@ -55,6 +55,7 @@ app.get("/jumbtron", (req, res) => {
   });
 });
 
+//to modularize  routes  with MVC , this route is kept in projects /MODEL
 app.use("/testing", projects);
 
 //function coverts image that are kept in Assests folder data top base64
@@ -67,6 +68,8 @@ function base64_encode(file) {
 
   return "data:image/png;base64," + abc;
 }
+
+//this is done in last to initiate the server
 
 const port = process.env.PORT || 1004;
 app.listen(port, () => {
